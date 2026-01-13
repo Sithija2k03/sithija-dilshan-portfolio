@@ -159,7 +159,7 @@ const sampleProjects = [
     title: "AGENTFLOW – Multi-Agent AI Group Project Organizer ",
     description: "Multi-agent AI system for automated task allocation and project management ",
     longDescription: "Developed a multi-agent AI system for automated and fair task allocation using NLP and optimization techniques. Built agents for task planning, progress monitoring, deadline reminders and communication summarizer agent. ",
-    category: ["AI Agents","Web Development"],
+    category: "AI Agents",
     technologies: ["FastAPI", "Next.js", "Python", "Hugging Face-API", "MongoDB"],
     toolsUsed: ["VS Code", "GitHub", "Postman"],
     media: [
@@ -201,6 +201,37 @@ const sampleProjects = [
      
     ],
     githubUrl: "https://github.com/Sithija2k03/group-project-organizer-ai",
+    featured: true,
+    order: 2
+  },
+  {
+    title: "BODYDOC – Fitness Center Web Application (MERN Stack)  ",
+    description: "AI integrated web app for gym management, fitness tracking, virtual consultations, e-pharmacy, inventory & finance ",
+    longDescription: "A full-featured web app built to manage gym memberships, personalized fitness tracking, virtual health consultations, e-pharmacy, inventory, finance, and more — all in one seamless platform. ",
+    category: "Web Development",
+    technologies: ["Node.js","Express.js", "React.js", "JavaScript", "Gemini-API", "MongoDB"],
+    toolsUsed: ["VS Code", "GitHub", "Postman"],
+    media: [
+       {
+        type: "video",
+        url: "/videos/bodydoc_admin.mp4",
+        thumbnail: "/images/AgentFlow_github.png",
+        caption: "BODYDOC Admin Panel walkthrough"
+      },
+       {
+        type: "video",
+        url: "/videos/Tbodydoc_user.mp4",
+        thumbnail: "/images/AgentFlow_github.png",
+        caption: "BODYDOC User Panel walkthrough"
+      },
+      {
+        type: "image",
+        url: "/images/bodydoc_github.png",
+        caption: "BODYDOC GitHub Repository"
+      },
+     
+    ],
+    githubUrl: "https://github.com/Sithija2k03/BODYDOC_Fitness_And_Wellness_Center",
     featured: true,
     order: 2
   },
