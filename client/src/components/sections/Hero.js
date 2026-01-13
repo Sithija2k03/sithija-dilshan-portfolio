@@ -24,7 +24,7 @@ const Hero = () => {
             <button onClick={scrollToContact} className="btn btn-primary">
               Hire Me
             </button>
-            <a href="/My_CV_Version(3).pdf" download="Sithija_Dilshan_CV.pdf" className="btn btn-secondary">
+            <a href="/Sithija_Dilshan_CV.pdf" download="Sithija_Dilshan_CV.pdf" className="btn btn-secondary">
               Download CV
             </a>
           </div>

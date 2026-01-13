@@ -44,5 +44,5 @@ export const PERSONAL_INFO = {
   email: 'sithijadilshan2k03@gmail.com',
   phone: '+94765378553',
   location: 'Maharagama, Western Province, Sri Lanka',
-  cvPath: '/SithijaDilshan_CV.pdf' 
+  cvPath: '/Sithija_Dilshan_CV.pdf' 
 };
