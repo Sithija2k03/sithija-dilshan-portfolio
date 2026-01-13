@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const Project = require('../models/Project');
 
+// GET featured projects (MUST be before /:id route)
+router.get('/featured', async (req, res) => {
+  try {
+    const projects = await Project.find({ featured: true }).sort({ order: 1 });
+    res.json(projects);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 // GET all projects
 router.get('/', async (req, res) => {
   try {
@@ -12,17 +22,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET featured projects
-router.get('/featured', async (req, res) => {
-  try {
-    const projects = await Project.find({ featured: true }).sort({ order: 1 });
-    res.json(projects);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-// GET single project
+// GET single project (MUST be after specific routes like /featured)
 router.get('/:id', async (req, res) => {
   try {
     const project = await Project.findById(req.params.id);
@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// POST new project (you'll use this to add projects)
+// POST new project
 router.post('/', async (req, res) => {
   const project = new Project(req.body);
   try {
@@ -50,7 +50,7 @@ router.put('/:id', async (req, res) => {
     const project = await Project.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true }
+      { new: true, runValidators: true }
     );
     if (!project) return res.status(404).json({ message: 'Project not found' });
     res.json(project);

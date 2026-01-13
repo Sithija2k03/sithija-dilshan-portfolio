@@ -30,9 +30,19 @@ export const SERVICES = [
     description: 'Build predictive models using scikit-learn, TensorFlow, and XGBoost',
     icon: '🤖'
   },
-  {
-    title: 'Web Scraping',
-    description: 'Collect and process data from websites using BeautifulSoup and Selenium',
-    icon: '🕷️'
-  }
+    {
+    
+    title: 'Web Application Development', 
+    description: 'Create full-stack web applications using MERN Stack. Build scalable, responsive, and user-friendly applications with modern technologies.',
+    icon: '💻'
+  },
 ];
+
+export const PERSONAL_INFO = {
+  name: 'Sithija Dilshan',
+  title: 'Data Science Student & Aspiring Analyst',
+  email: 'sithijadilshan2k03@gmail.com',
+  phone: '+94765378553',
+  location: 'Maharagama, Western Province, Sri Lanka',
+  cvPath: '/My_CV_Version(3).pdf' 
+};

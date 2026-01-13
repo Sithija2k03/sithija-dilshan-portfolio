@@ -24,7 +24,7 @@ const Hero = () => {
             <button onClick={scrollToContact} className="btn btn-primary">
               Hire Me
             </button>
-            <a href="/resume.pdf" download className="btn btn-secondary">
+            <a href="/My_CV_Version(3).pdf" download="Sithija_Dilshan_CV.pdf" className="btn btn-secondary">
               Download CV
             </a>
           </div>
@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="hero-image">
           <div className="image-placeholder">
             {/* Replace with your photo */}
-            <img src="/profile.jpg" alt="Profile" />
+            <img src="/profile.png" alt="Profile" />
           </div>
         </div>
       </div>

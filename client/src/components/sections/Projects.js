@@ -23,7 +23,7 @@ const Projects = () => {
     }
   };
 
-  const categories = ['All', 'Data Analysis', 'Machine Learning', 'Data Visualization', 'Web Scraping'];
+  const categories = ['All', 'Data Analysis', 'Machine Learning', 'AI Agents', 'Web Development', 'Other'];
 
   const filteredProjects = filter === 'All' 
     ? projects 
