@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sithija-dilshan-portfolio/static/css/main.00ad7a45.css",
+    "main.js": "/sithija-dilshan-portfolio/static/js/main.72ffe8e9.js",
+    "index.html": "/sithija-dilshan-portfolio/index.html",
+    "main.00ad7a45.css.map": "/sithija-dilshan-portfolio/static/css/main.00ad7a45.css.map",
+    "main.72ffe8e9.js.map": "/sithija-dilshan-portfolio/static/js/main.72ffe8e9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.00ad7a45.css",
+    "static/js/main.72ffe8e9.js"
+  ]
+}
