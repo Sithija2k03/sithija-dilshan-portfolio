@@ -1,0 +1,128 @@
+.about {
+  padding: 6rem 2rem;
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
+  bottom: -100px;
+  right: -100px;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.about-text p {
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(26, 31, 58, 0.4);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.stat:hover::before {
+  transform: scaleX(1);
+}
+
+.stat:hover {
+  transform: translateY(-8px);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+}
+
+.stat h3 {
+  font-size: 3rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  font-weight: 900;
+}
+
+.stat p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+  border: 2px solid rgba(99, 102, 241, 0.2);
+}
+
+@media (max-width: 968px) {
+  .about {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .stat h3 {
+    font-size: 2.5rem;
+  }
+}
