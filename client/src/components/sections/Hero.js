@@ -36,6 +36,9 @@ const Hero = () => {
             <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
+            <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer">
+              YouTube
+            </a>
             <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noopener noreferrer">
               Kaggle
             </a>

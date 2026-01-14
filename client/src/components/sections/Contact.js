@@ -125,20 +125,27 @@ const Contact = () => {
             </div>
 
             <div className="social-links-contact">
-              <h4>Follow Me</h4>
-              <div className="social-icons">
-                <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
-                  <span className="icon">🔗</span> GitHub
-                </a>
-                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
-                  <span className="icon">💼</span> LinkedIn
-                </a>
-                <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noopener noreferrer">
-                  <span className="icon">📊</span> Kaggle
-                </a>
+                <h4>Follow Me</h4>
+                <div className="social-icons">
+                  <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
+                    <img src="/icons/github2.png" alt="GitHub" className="social-icon-img" />
+                    <span>GitHub</span>
+                  </a>
+                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+                    <img src="/icons/linkedin.png" alt="LinkedIn" className="social-icon-img" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer">
+                    <img src="/icons/youtube.png" alt="YouTube" className="social-icon-img" />
+                    <span>YouTube</span>
+                  </a>
+                   <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noopener noreferrer">
+                    <img src="/icons/kaggle.png" alt="Kaggle" className="social-icon-img" />
+                    <span>Kaggle</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
 
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">

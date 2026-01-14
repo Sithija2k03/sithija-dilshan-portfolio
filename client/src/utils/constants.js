@@ -1,6 +1,7 @@
 export const SOCIAL_LINKS = {
   github: 'https://github.com/Sithija2k03',
   linkedin: 'https://www.linkedin.com/in/sithija-dilshan-05448427b/',
+  youtube: 'https://youtube.com/@sithijadilshan-23?si=cy3ij-uIu8ABN7ng',
   kaggle: 'https://www.kaggle.com/sithija4127', 
   email: 'sithijadilshan2k03@gmail.com'
 };
