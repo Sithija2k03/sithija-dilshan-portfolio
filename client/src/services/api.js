@@ -9,16 +9,10 @@ const api = axios.create({
   },
 });
 
-// Projects
 export const getProjects = () => api.get('/projects');
 export const getFeaturedProjects = () => api.get('/projects/featured');
 export const getProjectById = (id) => api.get(`/projects/${id}`);
-
-
-// Skills
 export const getSkills = () => api.get('/skills');
-
-// Contact
 export const submitContact = (data) => api.post('/contact', data);
 
 export default api;
