@@ -26,7 +26,10 @@ const Skills = () => {
         { name: "Node.js", icon: "/icons/nodejs.png" },
         { name: "Next.js", icon: "/icons/nextjs.png" },
         { name: "FastAPI", icon: "/icons/fastapi.png" },
-
+        { name: "Numpy", icon: "/icons/numpy.png" },
+        { name: "Pandas", icon: "/icons/pandas.png" },
+        { name: "Scikit-Learn", icon: "/icons/scikit.png" },
+        { name: "TensorFlow", icon: "/icons/tensorflow.png" },
       ]
     },
     {
