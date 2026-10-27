@@ -1,37 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { submitContact } from '../../services/api';
 import { SOCIAL_LINKS, CONTACT_INFO } from '../../utils/constants';
 import './Contact.css';
 
+const MAP_EMBED_URL =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58640142688!2d79.8612!3d6.9271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1234567890';
+
+const INITIAL_FORM = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+  inquiryType: 'Other'
+};
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-    inquiryType: 'Other'
-  });
+  const [formData, setFormData] = useState(INITIAL_FORM);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
-  const [userLocation, setUserLocation] = useState(null);
-
-  useEffect(() => {
-    // Get user's approximate location (optional)
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setUserLocation({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          });
-        },
-        (error) => {
-          console.log('Location access denied or unavailable');
-        }
-      );
-    }
-  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -49,14 +36,9 @@ const Contact = () => {
     try {
       await submitContact(formData);
       setSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-        inquiryType: 'Other'
-      });
+      setFormData(INITIAL_FORM);
     } catch (err) {
+      console.error('Contact form error:', err);
       setError('Failed to send message. Please try again.');
     } finally {
       setLoading(false);
@@ -66,7 +48,14 @@ const Contact = () => {
   // Open location in Google Maps
   const openLocation = () => {
     const { lat, lng } = CONTACT_INFO.locationCoords;
-    window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
+    window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleLocationKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openLocation();
+    }
   };
 
   return (
@@ -80,7 +69,7 @@ const Contact = () => {
         <div className="contact-content">
           <div className="contact-info">
             <h3>Contact Information</h3>
-            
+
             <div className="info-item">
               <span className="info-icon">📧</span>
               <div>
@@ -101,7 +90,13 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="info-item clickable" onClick={openLocation}>
+            <div
+              className="info-item clickable"
+              onClick={openLocation}
+              onKeyDown={handleLocationKeyDown}
+              role="button"
+              tabIndex={0}
+            >
               <span className="info-icon">📍</span>
               <div>
                 <h4>Location</h4>
@@ -113,11 +108,11 @@ const Contact = () => {
             {/* Interactive Map */}
             <div className="location-map">
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58640142688!2d79.8612!3d6.9271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1234567890`}
+                src={MAP_EMBED_URL}
                 width="100%"
                 height="200"
                 style={{ border: 0, borderRadius: '12px' }}
-                allowFullScreen=""
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Location Map"
@@ -125,27 +120,27 @@ const Contact = () => {
             </div>
 
             <div className="social-links-contact">
-                <h4>Follow Me</h4>
-                <div className="social-icons">
-                  <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
-                    <img src="/icons/github2.png" alt="GitHub" className="social-icon-img" />
-                    <span>GitHub</span>
-                  </a>
-                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
-                    <img src="/icons/linkedin.png" alt="LinkedIn" className="social-icon-img" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer">
-                    <img src="/icons/youtube.png" alt="YouTube" className="social-icon-img" />
-                    <span>YouTube</span>
-                  </a>
-                   <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noopener noreferrer">
-                    <img src="/icons/kaggle.png" alt="Kaggle" className="social-icon-img" />
-                    <span>Kaggle</span>
-                  </a>
-                </div>
+              <h4>Follow Me</h4>
+              <div className="social-icons">
+                <a href={SOCIAL_LINKS.github} target="_blank" rel="noopener noreferrer">
+                  <img src="/icons/github2.png" alt="GitHub" className="social-icon-img" />
+                  <span>GitHub</span>
+                </a>
+                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+                  <img src="/icons/linkedin.png" alt="LinkedIn" className="social-icon-img" />
+                  <span>LinkedIn</span>
+                </a>
+                <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer">
+                  <img src="/icons/youtube.png" alt="YouTube" className="social-icon-img" />
+                  <span>YouTube</span>
+                </a>
+                <a href={SOCIAL_LINKS.kaggle} target="_blank" rel="noopener noreferrer">
+                  <img src="/icons/kaggle.png" alt="Kaggle" className="social-icon-img" />
+                  <span>Kaggle</span>
+                </a>
               </div>
             </div>
+          </div>
 
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
